@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-	baseURL: process.env.VUE_APP_PROXY
+	baseURL: 'https://api-nodejs-todolist.herokuapp.com'
 });
 
 
