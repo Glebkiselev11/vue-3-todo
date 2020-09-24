@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
 	baseURL: 'https://api-nodejs-todolist.herokuapp.com'
-});
+})
 
 
 // Отсюда мы экспортируем нужный CRUD метод и по нему делаем api запрос
@@ -12,7 +12,7 @@ async function POST(url: string, payload: object) {
 	});
 
 	return data;
-};
+}
 
 async function POST_WITH_TOKEN(url: string, payload: object) {
 	const token = `Bearer ${localStorage.getItem('authToken')}`;
@@ -28,7 +28,7 @@ async function POST_WITH_TOKEN(url: string, payload: object) {
 		}
 	);
 	return data;
-};
+}
 
 async function GET_WITH_TOKEN(url: string) {
 	const token = `Bearer ${localStorage.getItem('authToken')}`;
@@ -90,4 +90,4 @@ export {
 	PATCH_WITH_TOKEN,
 	PUT_WITH_TOKEN,
 	DELETE_WITH_TOKEN
-};
+}

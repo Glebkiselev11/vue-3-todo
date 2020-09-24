@@ -98,6 +98,7 @@ export default defineComponent({
 				age: this.age
 			});
 
+			// todo нужно бы прикрутить vuex и делать через него запросы
 			localStorage.setItem('authToken', token);
 		}
 	}
