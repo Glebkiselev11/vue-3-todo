@@ -67,8 +67,7 @@
 </template>
 
 <script lang="ts">
-
-import { POST } from '@/http-config';
+import { mapActions } from 'vuex';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -85,21 +84,24 @@ export default defineComponent({
 	}),
 
 	methods: {
+		...mapActions({
+			_register: 'user/register'
+		}),
+
+
 		async register() {
 			if (this.password !== this.repeatPassword) {
 				this.error = 'Passwords must match';
 				return;
 			}
 
-			const { token } = await POST('/user/register', {
+			await this._register({
 				name: this.username,
 				email: this.email,
 				password: this.password,
 				age: this.age
-			});
+			})
 
-			// todo нужно бы прикрутить vuex и делать через него запросы
-			localStorage.setItem('authToken', token);
 		}
 	}
 

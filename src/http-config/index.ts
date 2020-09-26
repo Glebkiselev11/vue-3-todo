@@ -8,7 +8,9 @@ const axiosInstance = axios.create({
 // Отсюда мы экспортируем нужный CRUD метод и по нему делаем api запрос
 async function POST(url: string, payload: object) {
 	const { data } = await axiosInstance.post(url, payload, {
-		headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		headers: {
+			Accept: 'application/json'
+		}
 	});
 
 	return data;
