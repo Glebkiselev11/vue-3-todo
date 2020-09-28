@@ -31,12 +31,19 @@ const actions = {
 		}
 	},
 
-	async login(contex: ActionContext<UserState, RootState>, payload: UserLoginPayload) {
-		const { token } = await POST(`/user/login`, payload);
+	async login(contex: ActionContext<UserState, RootState>, payload: UserLoginPayload): Promise<boolean> {
 
-		if (token) {
+		try {
+			const { token, user } = await POST(`/user/login`, payload);
+
 			localStorage.setItem('authToken', token);
+			contex.commit('setUser', user);
+			return true;
+
+		} catch (e) {
+			return false;
 		}
+
 	}
 }
 
