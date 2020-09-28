@@ -1,6 +1,6 @@
 import { User } from '@/models/User';
 import { ActionContext } from 'vuex';
-import { UserState, UserRegistrationPayload } from './types';
+import { UserState, UserRegistrationPayload, UserLoginPayload } from './types';
 import { RootState } from '../types';
 import { POST } from '@/http-config';
 
@@ -25,6 +25,14 @@ const mutations = {
 const actions = {
 	async register(contex: ActionContext<UserState, RootState>, payload: UserRegistrationPayload) {
 		const { token } = await POST(`/user/register`, payload);
+
+		if (token) {
+			localStorage.setItem('authToken', token);
+		}
+	},
+
+	async login(contex: ActionContext<UserState, RootState>, payload: UserLoginPayload) {
+		const { token } = await POST(`/user/login`, payload);
 
 		if (token) {
 			localStorage.setItem('authToken', token);

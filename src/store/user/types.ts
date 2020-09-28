@@ -10,3 +10,8 @@ export interface UserRegistrationPayload {
 	password: string;
 	age: number
 };
+
+export interface UserLoginPayload {
+	email: string;
+	password: string;
+};
