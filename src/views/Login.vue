@@ -1,5 +1,5 @@
 <template>
-	<div class="wrap">
+	<div class="wrap align-center">
 		<form class="login-form" @submit.prevent="login">
 			<h1 class="h-mb-md">Login</h1>
 
@@ -68,15 +68,3 @@ export default defineComponent({
 
 });
 </script>
-
-<style scoped>
-
-.wrap {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-</style>

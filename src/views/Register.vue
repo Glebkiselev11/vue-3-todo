@@ -1,6 +1,6 @@
 <template>
 	<!-- Page of registration -->
-	<div class="wrap">
+	<div class="wrap align-center">
 
 		<form class="register-form" @submit.prevent="register">
 			<h1 class="h-mb-md">Please register</h1>
@@ -109,14 +109,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-.wrap {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
 .register-form {
 	min-height: 20rem;

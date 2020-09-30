@@ -1,6 +1,32 @@
 <template>
-	<router-view/>
+	<component :is="layout">
+		<router-view/>
+	</component>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+import EmptyLayout from '@/layouts/EmptyLayout.vue';
+import MainLayout from '@/layouts/MainLayout.vue';
+
+export default defineComponent({
+	name: 'app',
+
+	components: {
+		EmptyLayout,
+		MainLayout
+	},
+
+	computed: {
+		layout() {
+			return this.$route.meta.layout + '-layout';
+		}
+	},
+
+});
+</script>
+
 
 <style>
 
@@ -8,6 +34,18 @@
 	font-family: 'Courier New', Courier, monospace;
 	margin: 0;
 	padding: 0;
+}
+
+.wrap {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.align-center {
+	display: flex;
+	align-items: center;
 }
 
 .input {
