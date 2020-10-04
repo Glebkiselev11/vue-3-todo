@@ -111,6 +111,7 @@ export default defineComponent({
 <style scoped>
 
 .register-form {
+	margin-top: 15rem;
 	min-height: 20rem;
 }
 

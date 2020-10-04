@@ -7,6 +7,7 @@
 <style scoped>
 
 .empty-layout {
+	height: 100vh;
 	background: white;
 }
 

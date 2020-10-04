@@ -1,4 +1,7 @@
+import { POST_WITH_TOKEN } from '@/http-config';
 import { Task } from '@/models/Task';
+import { ActionContext } from 'vuex';
+import { RootState } from '../types';
 import { TaskState } from './types';
 
 
@@ -21,7 +24,13 @@ const mutations = {
 }
 
 const actions = {
-
+	async createTask(contex: ActionContext<TaskState, RootState>, description: string): Promise<boolean> {
+		const { success, data } = await POST_WITH_TOKEN(`/task`, { description });
+		if (success) {
+			contex.commit('addNewTask', data);
+		}
+		return success;
+	}
 }
 
 export default {

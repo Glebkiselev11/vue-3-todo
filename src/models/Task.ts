@@ -1,3 +1,6 @@
 export interface Task {
-	description: string
+	_id: string;
+	description: string;
+	completed: boolean;
+	createdAt: string;
 }

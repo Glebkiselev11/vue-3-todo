@@ -1,6 +1,6 @@
 <template>
 	<div class="wrap">
-		<add-task/>
+		<add-task class="h-mt-md"/>
 	</div>
 </template>
 

@@ -68,3 +68,11 @@ export default defineComponent({
 
 });
 </script>
+
+<style scoped>
+
+.login-form {
+	margin-top: 15rem;
+}
+
+</style>
